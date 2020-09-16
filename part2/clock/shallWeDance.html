@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<style>
+
+
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: Arial;
+			outline: none;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		body {
+			min-height: 754px;
+    		min-width: 655px;
+			background-image: url(./imgs/images.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+
+		.wrapper2 {
+			width: 100%;
+			height: 100%;
+			min-height: 500px;
+			display: flex;
+			justify-content: center;
+		}
+
+		.box {
+			width: 650px;
+		    height: 100px;
+		    position: relative;
+		    font-size: 90px;
+		    font-weight: bolder;
+		    transition: 0.6s;
+		    opacity: 1;
+		    z-index: 1;
+		    color: white;
+		}
+
+		.box span {
+			width: 101px;
+		}
+
+		.box2 {
+			position: absolute;
+			top: 252px;
+			z-index: 0;
+			opacity: 0;
+		    visibility: hidden;
+		   	width: 650px;
+		    height: 100px;
+		    font-size: 90px;
+		    font-weight: bolder;
+		    transition: 0.6s;
+		    color: white;
+		}
+
+		.box3 {
+			position: absolute;
+			top: 252px;
+			z-index: 0;
+			opacity: 0;
+		    visibility: hidden;
+		   	width: 650px;
+		    height: 100px;
+		    font-size: 90px;
+		    font-weight: bolder;
+		    transition: 0.6s;
+		    color: white;
+		}
+
+		.CB {
+			position: absolute;
+		    top: 21px;
+		    right: 30px;
+		    height: 65px;
+		    width: 126px;
+		    font-size: 20px;
+		    font-weight: bold;
+		    color: #666;
+		    border-radius: 20px;
+		    transition: 0.6s;
+		    border: 0;
+		    cursor: pointer;
+		    background-color: white;
+		}
+
+		.box2 button {
+			position: absolute;
+			top: 21px;
+			right: 30px;
+			cursor: pointer;
+		}
+
+		.button {
+			display: flex;
+			justify-content: center;
+
+		}
+		.button div {
+			width: 650px;
+		    height: 50px;
+		    position: relative;
+		    margin-bottom: 25px;
+		    margin-top: 177px;
+		}
+
+		.button div div {
+			left: 0;
+			width: 130px;
+		    height: 50px;
+		    background-color: white;
+		    transition: 0.6s;
+		    position: relative;
+		    float: left;
+		    margin: 20px 5px;
+		    transition: 0.3s;
+		    border-bottom: 0;
+		    border-radius: 10px;
+		    cursor: pointer;
+		}
+
+		.button div div:hover {
+			transform: scale(1.1);
+		}
+
+		.button img {
+			height: 100%;
+			padding: 5px 10px;
+		}
+
+		.button span {
+			position: absolute;
+		    top: 15px;
+		    font-weight: bold;
+		    font-size: 18px;
+		    color: #666;
+		}
+
+		.inputAlarmTime {
+		    border: 0px;
+    		width: 101px;
+    		font-size: 90px;
+    		font-weight: bold;
+    		color: white;
+    		background-color: transparent;
+		}
+
+		/*.inputAlarmTime:visited {
+			border: none;
+			border-style: none;
+		}*/
+
+		.box3_list {
+			width: 600px;
+		    height: 300px;
+		    background-color: #333;
+		    position :relative;
+		    overflow: scroll;
+		    overflow-x: hidden;
+		}
+
+		.box3_1 {
+
+			width: 600px;
+    		height: 30px;
+    		font-size: 21px;
+    		text-align: center;
+    		padding-top: 4px;
+    		background-color: #5555;
+			}
+
+		.btn-danger {
+			position: relative;
+			outline: none;
+    		top: -15px;
+    		right: -78px;
+		}
+
+
+		#alert {
+			background-color: pink;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="slide.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="shall.js"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="button">
+			<div>
+				<div id="bbb11">
+					<img src="./imgs/alarm.png" alt="icon"/><span>Clock</span>
+				</div>
+				<div id="bbb22">
+					<img src="./imgs/stopWatch.png" alt="icon"/><span>Timer</span>
+				</div>
+				<div id="bbb33">
+					<img src="./imgs/alarm2.png" alt="icon"/><span>Alarm</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper2">
+			<div class="box">
+				<span id="h">00</span> :
+				<span id="m">00</span> :
+				<span id="s">00</span>
+
+				<button class= "CB" id="btnStart">OFF</button>
+			</div>
+
+			<div class="box2">
+				<input class="inputAlarmTime" id="h2" type=text maxlength="2" value="00"> : 
+				<input class="inputAlarmTime"  id="m2" type=text maxlength="2" value="00"> : 
+				<input class="inputAlarmTime"  id="s2" type=text maxlength="2" value="00"> 
+	<!--
+				<span max-length=2 id="h2" contenteditable="true">00</span> :
+				<span id="m2" contenteditable="true">00</span> :
+				<span id="s2" contenteditable="true">00</span>
+	-->
+				<button class= "CB" id="btnStart2">START</button>
+			</div>
+
+			<div class="box3">
+				<input class="inputAlarmTime" id="h3" type=text maxlength="2" value="00"> : 
+				<input class="inputAlarmTime"  id="m3" type=text maxlength="2" value="00"> : 
+				<input class="inputAlarmTime"  id="s3" type=text maxlength="2" value="00"> 
+
+				<button class= "CB" id="btnStart3">Add alarm</button>
+
+				<div class="box3_list">
+					<div class="box3_1">lists</div>
+					<ul id="alarmList">
+<!--				<li>
+						<div>00:00</div>
+						<div class="container">
+						  <label class="switch" for="checkbox">
+						    <input type="checkbox" id="checkbox" />
+						    <div class="slider round"></div>
+						  </label>
+						</div>
+					</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

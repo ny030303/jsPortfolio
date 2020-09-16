@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="jcolor-picker.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="jcolor-picker.min.js"></script>
+	<script src="DrawApp.js"></script>
+	<script>
+		window.onload = function(){
+			$('#my-color-picker').jColorPicker();
+			let app = new DrawApp();
+		}
+	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		#myCanvas {
+			background-color: white;
+			margin: 10px;
+			transform: translate(-50% -50%);
+			margin-bottom: 80px;
+			position: relative;
+		}
+
+		#wrapper {
+			background-color: #659999;
+			position: relative;
+		}
+
+		.btn {
+			display:inline-block;
+			text-align: center;
+			border:1px solid transparent;
+			padding:8px 12px;
+			border-radius: 4px;
+			cursor: pointer;
+			outline: none;
+			color:white;
+		}
+
+		.btn-origin {
+			background-color: #2196f3;
+		}
+
+		.btn-color {
+			padding: 0;
+			width:25px;
+			height:25px;
+
+		}
+		.btn-blue {
+			background-color: #00f;
+		}
+		.btn-red {
+			background-color: #f00;
+		}
+		.btn-green {
+			background-color: #0f0;
+		}
+
+		.jcolor-picker{
+			display: block;
+			width: 30px;
+			color: #fff;
+			font-size: 13px;
+		}
+
+	</style>
+
+	<title>Document</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div>
+			<button class="btn btn-red btn-color" data-color ="#f00">&nbsp;</button>
+			<button class="btn btn-blue btn-color" data-color ="#00f">&nbsp;</button>
+			<button class="btn btn-green btn-color" data-color ="#0f0">&nbsp;</button>
+			<button class="btn btn-origin">지우기</button>
+			<div id="my-color-picker">
+			</div>
+		</div>
+	<canvas id="myCanvas" width="1000" height="500">
+	</canvas>
+	</div>
+
+</body>
+</html>

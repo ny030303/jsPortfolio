@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>제이쿼리 시작</title>
+	<script src="jquery-3.3.1.js"></script>
+	<style>
+		.active {
+			color: yellow;
+			background-color: black;
+		}
+
+		img {
+			width: 200px;
+			height: auto;
+		}
+	</style>
+	<script>
+		$(function(){
+			let bDirection = 0;
+			$(".item").on("click", function(e){
+				for( let i=0; i<4; i++) {
+					$(".item").eq(i).removeClass("active");
+				}
+				$(e.target).addClass("active");				
+			}); /// hello jQ
+
+
+
+			$("#btnSwap").on("click", function(e){
+				bDirection = 1 - bDirection;
+			});
+
+			setInterval(function(){
+				let imgSrcs = [];
+				for( let i=0; i<4; i++) {
+					imgSrcs.push($("img").eq(i).attr("src"));
+				}
+
+				if( bDirection == 0 ) {					
+					$("img").eq(0).attr("src", imgSrcs[1]);
+					$("img").eq(1).attr("src", imgSrcs[2]);
+					$("img").eq(2).attr("src", imgSrcs[3]);
+					$("img").eq(3).attr("src", imgSrcs[0]);
+				}
+				else {
+					$("img").eq(0).attr("src", imgSrcs[3]);
+					$("img").eq(1).attr("src", imgSrcs[0]);
+					$("img").eq(2).attr("src", imgSrcs[1]);
+					$("img").eq(3).attr("src", imgSrcs[2]);
+				}
+			}, 1000); /// 루프
+		}); 
+	</script>
+</head>
+<body>
+	<h1 class="item">Hello Jquery</h1>
+	<h1 class="item">Hello Jquery</h1>
+	<h1 class="item">Hello Jquery</h1>
+	<h1 class="item">Hello Jquery</h1>
+	<!-- <img id="one" src="http://image.kmib.co.kr/online_image/2017/0401/201704010005_61130011368653_1.jpg" alt="">
+	<img id="two" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeMv95PPbKJzzhF7bp7LUIQa0uhv14YLMjzHIZ86uT043UpC9I" alt=""> -->
+<div class="low">
+	<img  src="http://image.kmib.co.kr/online_image/2017/0401/201704010005_61130011368653_1.jpg" alt="">
+	<img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeMv95PPbKJzzhF7bp7LUIQa0uhv14YLMjzHIZ86uT043UpC9I" alt="">
+	<img src="http://newsimg.hankookilbo.com/2016/04/13/201604131460701467_1.jpg" alt="">
+	<img src="https://blog.hmgjournal.com/images_n/contents/170719_cat01.png" alt="">
+	<br/>
+</div>
+	<button id="btnSwap">교체</button>
+</body>
+</html>
+
+
+
+
+<!-- /*<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>제이쿼리 시작</title>
+	<script src="jquery-3.3.1.js"></script>
+	<style>
+		.active {
+			color:white;
+			background-color:black;
+		}
+		img {
+			width:200px;
+			height:auto;
+		}
+	</style>
+	<script>
+		$(function(){
+			$(".item").on("click", function(e){
+				$(".item").removeClass("active");
+				$(e.target).addClass("active");
+			});
+
+			setInterval(function(){
+				let row = $(".row");
+				$("img").eq(0).appendTo(row);
+			}, 1000);
+
+			// $("#btnSwap").on("click", function(e){
+			// 	let src1 = $("#one").attr("src");
+			// 	let src2 = $("#two").attr("src");
+
+			// 	$("#one").attr("src", src2);
+			// 	$("#two").attr("src", src1);
+			// });
+		});
+	</script>
+</head>
+<body>
+	<h1 class="item">Hello Jquery</h1>
+	<h1 class="item">Hello Jquery</h1>
+	<h1 class="item">Hello Jquery</h1>
+	<h1 class="item">Hello Jquery</h1>
+	<div class="row">
+		<img src="http://newsimg.hankookilbo.com/2016/04/13/201604131460701467_1.jpg" alt="">
+		<img src="https://blog.hmgjournal.com/images_n/contents/170719_cat01.png" alt="">
+		<img src="http://newsimg.hankookilbo.com/2016/04/13/201604131460701467_1.jpg" alt="">
+		<img src="https://blog.hmgjournal.com/images_n/contents/170719_cat01.png" alt="">
+	</div>
+	
+	<br/>
+	<button id="btnSwap">교체</button>
+</body>
+</html>*/ -->
